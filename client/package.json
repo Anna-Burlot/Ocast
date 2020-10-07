@@ -80,7 +80,6 @@
     "react-redux": "*",
     "react-router-dom": "^5.1.2",
     "react-select": "^3.1.0",
-    "redux": "*",
-    "styled-components": "*"
+    "redux": "*"
   }
 }

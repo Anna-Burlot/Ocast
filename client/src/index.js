@@ -3,6 +3,7 @@ import React from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+import axios from "axios";
 
 // == Import : local
 import "./styles.css";
@@ -10,6 +11,8 @@ import "./styles.css";
 import App from "src/containers/App";
 // Store
 import store from "src/store";
+
+axios.defaults.withCredentials = true;
 
 // == Render
 // 1. Élément React racine (celui qui contient l'ensemble de l'app)
