@@ -144,6 +144,8 @@ const messageController = {
             .locale('fr')
             .calendar();
 
+            console.log('COUCOU : ', lastMessage[0])
+
           lastMessage[0].dataValues.text = `${lastMessage[0].dataValues.text.slice(
             0,
             15

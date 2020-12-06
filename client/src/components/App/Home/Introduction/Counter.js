@@ -6,7 +6,7 @@ import "./style.css";
 
 // == Composant
 const Counter = ({ count, countAllCandidates }) => {
-  useEffect(countAllCandidates, [count]);
+  useEffect(countAllCandidates, []);
   return <h2>{count} profils d'acteurs en ligne</h2>;
 };
 
