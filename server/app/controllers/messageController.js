@@ -3,6 +3,7 @@ const sendMail = require('../utils/mailer/sender');
 const { contactEmail } = require('../utils/mailer/mail_templates');
 const { Op } = require('sequelize');
 var moment = require('moment-timezone');
+const momentTimezone = require('moment-timezone/moment-timezone');
 
 const messageController = {
   // sauvegarde du message en bdd + envoi du mail avec sparkpost
@@ -140,11 +141,9 @@ const messageController = {
 
           lastMessage[0].dataValues.datetime = moment(lastMessage[0].created_at)
             .tz('Europe/Paris')
-            .add(2, 'hour')
+            .add(1, 'hour')
             .locale('fr')
             .calendar();
-
-            console.log('COUCOU : ', lastMessage[0])
 
           lastMessage[0].dataValues.text = `${lastMessage[0].dataValues.text.slice(
             0,

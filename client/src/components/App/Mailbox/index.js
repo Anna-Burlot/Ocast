@@ -97,83 +97,92 @@ const Mailbox = ({
           </button>
         )}
       </div>
-      <div className="columns">
-        {messagesPreviewOpened
-          ? !isLoadingMessagesPreview && (
-              <div
-                id="all-conversations"
-                className="column is-half panel all-conversations"
-              >
-                {messagesPreview.map(messagePreview => (
-                  <a
-                    onClick={() => {
-                      handleClick();
-                      changeCurrentInterlocutor(messagePreview.interlocutor);
-                      const index = messagesPreview.indexOf(messagePreview);
-                      fetchConversation(index);
-                      chargeLoaderConversation();
-                    }}
-                    className={
-                      currentInterlocutor !== null &&
-                      messagePreview.interlocutor.id === currentInterlocutor.id
-                        ? "panel-block selected"
-                        : "panel-block"
-                    }
-                    key={messagePreview.interlocutor.id}
-                  >
-                    <ConversationPreview
+      {messagesPreview.length > 0 ? (
+        <div className="columns">
+          {messagesPreviewOpened
+            ? !isLoadingMessagesPreview && (
+                <div
+                  id="all-conversations"
+                  className="column is-half panel all-conversations"
+                >
+                  {messagesPreview.map(messagePreview => (
+                    <a
+                      onClick={() => {
+                        handleClick();
+                        changeCurrentInterlocutor(messagePreview.interlocutor);
+                        const index = messagesPreview.indexOf(messagePreview);
+                        fetchConversation(index);
+                        chargeLoaderConversation();
+                      }}
+                      className={
+                        currentInterlocutor !== null &&
+                        messagePreview.interlocutor.id === currentInterlocutor.id
+                          ? "panel-block selected"
+                          : "panel-block"
+                      }
                       key={messagePreview.interlocutor.id}
-                      interlocutor={
-                        messagePreview.interlocutor.firstname +
-                        " " +
-                        messagePreview.interlocutor.surname
-                      }
-                      datetime={messagePreview.datetime}
-                      lastMessage={messagePreview.text}
-                      lastMessageAuthor={
-                        messagePreview.author_id !== userId
-                          ? messagePreview.interlocutor.firstname +
-                            " " +
-                            messagePreview.interlocutor.surname
-                          : "Vous"
-                      }
-                      notif={
-                        !messagePreview.isRead &&
-                        messagePreview.receiver_id === userId
-                          ? true
-                          : false
-                      }
-                      deleteOneConversation={deleteOneConversation}
-                      interlocutor_id={messagePreview.interlocutor.id}
-                    />
-                  </a>
-                ))}
-              </div>
-            )
-          : ""}
-        {currentInterlocutor === null && (
-          <p>Vous n'avez pas sélectionné de conversation.</p>
-        )}
-        {!smallScreen || !messagesPreviewOpened ? (
-          !isLoadingCurrentConversation && currentInterlocutor !== null ? (
-            <div id="conversation" className="column is-half panel">
-              <ConversationDetail
-                interlocutor={
-                  currentInterlocutor.firstname +
-                  " " +
-                  currentInterlocutor.surname
-                }
-                interlocutorId={currentInterlocutor.id}
-              />
+                    >
+                      <ConversationPreview
+                        key={messagePreview.interlocutor.id}
+                        interlocutor={
+                          messagePreview.interlocutor.firstname +
+                          " " +
+                          messagePreview.interlocutor.surname
+                        }
+                        datetime={messagePreview.datetime}
+                        lastMessage={messagePreview.text}
+                        lastMessageAuthor={
+                          messagePreview.author_id !== userId
+                            ? messagePreview.interlocutor.firstname +
+                              " " +
+                              messagePreview.interlocutor.surname
+                            : "Vous"
+                        }
+                        notif={
+                          !messagePreview.isRead &&
+                          messagePreview.receiver_id === userId
+                            ? true
+                            : false
+                        }
+                        deleteOneConversation={deleteOneConversation}
+                        interlocutor_id={messagePreview.interlocutor.id}
+                      />
+                    </a>
+                  ))}
+                </div>
+              )
+            : ""}
+          {currentInterlocutor === null && (
+            <div className="column is-half panel" id="no-conversation">
+              <p>Vous n'avez pas sélectionné de conversation.</p>
             </div>
+          )}
+          {!smallScreen || !messagesPreviewOpened ? (
+            !isLoadingCurrentConversation && currentInterlocutor !== null ? (
+              <div id="conversation" className="column is-half panel">
+                <ConversationDetail
+                  interlocutor={
+                    currentInterlocutor.firstname +
+                    " " +
+                    currentInterlocutor.surname
+                  }
+                  interlocutorId={currentInterlocutor.id}
+                />
+              </div>
+            ) : (
+              ""
+            )
           ) : (
             ""
-          )
+          )}
+        </div>
         ) : (
-          ""
-        )}
+          <div className="column is-half panel" id="no-messages">
+            <p>Vous n'avez pas encore de messages</p>
+          </div>
+        )
+      }
       </div>
-    </div>
   );
 };
 
