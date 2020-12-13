@@ -6,11 +6,14 @@ import Form from "src/containers/App/FormMailbox";
 import ReportProfileButton from "src/components/App/ReportProfileButton";
 
 // == Composant
-const ConversationDetail = ({ interlocutor, interlocutorId }) => (
+const ConversationDetail = ({ interlocutorName, interlocutorId }) => (
   <div className="conversation-detail">
     <div className="conversation-header">
-      <h2>Conversation avec {interlocutor}</h2>
-      <ReportProfileButton userToReportId={interlocutorId} size="is-small" />
+      <h2>Conversation avec {interlocutorName}</h2>
+      <ReportProfileButton 
+        userToReportId={interlocutorId} 
+        size="is-small" 
+      />
     </div>
     <MessagesMailbox />
     <Form />

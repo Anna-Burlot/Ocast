@@ -3,7 +3,6 @@ const sendMail = require('../utils/mailer/sender');
 const { contactEmail } = require('../utils/mailer/mail_templates');
 const { Op } = require('sequelize');
 var moment = require('moment-timezone');
-const momentTimezone = require('moment-timezone/moment-timezone');
 
 const messageController = {
   // sauvegarde du message en bdd + envoi du mail avec sparkpost
@@ -71,7 +70,8 @@ const messageController = {
   getLastMessageOfAllInterlocutors: async (request, response) => {
     try {
       const userId = request.params.id;
-      // je cherche tous les messages ou le user courant (request.params) est soit author soit receiver
+      // je cherche tous les messages ou le user courant (request.params) 
+      // est soit author soit receiver
       const messages = await Message.findAll({
         where: {
           [Op.or]: [{ author_id: userId }, { receiver_id: userId }]
@@ -95,7 +95,6 @@ const messageController = {
 
       // 4 -- je vais chercher les interlocuteurs du user grace à leur id
       // en mapant sur le tableau précédemment créé
-
       const lastMessages = [];
 
       await Promise.all(

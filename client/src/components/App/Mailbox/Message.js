@@ -31,7 +31,8 @@ const Message = ({
       }
     >
       <div className="message-title">
-        {currentInterlocutor.role === "recruteur" && currentInterlocutor.id === authorId ? (
+        {currentInterlocutor.role === "recruteur" 
+          && currentInterlocutor.id === authorId ? (
           <Link to={
             "/candidate/recruiter/" + authorId
           } className="author-name">{author}</Link>

@@ -161,10 +161,8 @@ const Mailbox = ({
             !isLoadingCurrentConversation && currentInterlocutor !== null ? (
               <div id="conversation" className="column is-half panel">
                 <ConversationDetail
-                  interlocutor={
-                    currentInterlocutor.firstname +
-                    " " +
-                    currentInterlocutor.surname
+                  interlocutorName={
+                    `${currentInterlocutor.firstname} ${currentInterlocutor.surname}`
                   }
                   interlocutorId={currentInterlocutor.id}
                 />

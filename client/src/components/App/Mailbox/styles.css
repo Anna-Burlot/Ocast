@@ -4,7 +4,7 @@
 }
 
 .mailbox .columns {
-  height: 88%;
+  height: 100%;
 }
 
 .title {
@@ -153,6 +153,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 45%;
 }
 
 #no-messages {
@@ -198,6 +199,10 @@
 
   #conversation {
     width: 100%;
+  }
+
+  #no-conversation {
+    display: none;
   }
 
   .conversation-header {
@@ -251,9 +256,10 @@
 
   .mailbox .all-conversations {
     z-index: 1;
-    position: fixed;
+    position: sticky;
     background-color: white;
-    margin: 1rem 0 0 0 !important;
+    margin-top: 1rem;
+    width: 100%;
   }
 
   .message-form {
@@ -265,11 +271,16 @@
     padding: unset;
     height: 15%;
   }
+
   .mailbox .messages {
     padding: unset;
     padding-top: 22%;
     height: 62vh;
     padding-bottom: 1rem;
+  }
+
+  .mailbox--messagesPreview-button span:hover {
+    color: black;
   }
 }
 

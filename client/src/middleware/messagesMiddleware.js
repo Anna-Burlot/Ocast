@@ -80,11 +80,10 @@ const messagesMiddleware = store => next => action => {
     }
 
     case DELETE_ONE_MESSAGE: {
-      const currentMessage = action.message_id;
-      console.log(currentMessage);
+      const currentMessageId = action.message_id;
       axios
         .delete(
-          `http://localhost:3000/user/message/${currentMessage}`,
+          `http://localhost:3000/user/message/${currentMessageId}`,
           {
             withCredentials: true
           }
