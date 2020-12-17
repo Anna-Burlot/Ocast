@@ -167,7 +167,7 @@ const messageController = {
     }
   },
 
-  // recuperer tous les messages entre l' utilisateur courant et un autre utilisateur (en appelera ca conversation)
+  // recuperer tous les messages entre l' utilisateur courant et un autre utilisateur (on appelera ça conversation)
   getOneConversation: async (request, response) => {
     try {
       const userId = request.params.id;

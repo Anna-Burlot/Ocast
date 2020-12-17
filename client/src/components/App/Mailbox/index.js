@@ -77,23 +77,23 @@ const Mailbox = ({
       </div>
 
       <div className="header">
-        <h1 className="is-size-2 title">Mes messages</h1>
+        <h1 className="is-size-3 title">Mes messages</h1>
         {smallScreen && (
           <button
-            className="mailbox--messagesPreview-button secondary"
+            className="button secondary button--large"
             onClick={handleToogleMessagesPreview}
           >
-            <span className="is-size-6">
-              {messagesPreviewOpened
-                ? "Cacher les conversations"
-                : "Voir toutes les conversations"}
-            </span>
-            <svg style={{ width: "24px", height: "24px" }} viewBox="0 0 24 24">
+            <svg className="icon" style={{ width: "24px", height: "24px" }} viewBox="0 0 24 24">
               <path
                 fill="currentColor"
                 d="M3,17V19H9V17H3M3,5V7H13V5H3M13,21V19H21V17H13V15H11V21H13M7,9V11H3V13H7V15H9V9H7M21,13V11H11V13H21M15,9H17V7H21V5H17V3H15V9Z"
               />
             </svg>
+            <span>
+              {messagesPreviewOpened
+                ? "Cacher les conversations"
+                : "Voir toutes les conversations"}
+            </span>
           </button>
         )}
       </div>
@@ -159,7 +159,7 @@ const Mailbox = ({
           )}
           {!smallScreen || !messagesPreviewOpened ? (
             !isLoadingCurrentConversation && currentInterlocutor !== null ? (
-              <div id="conversation" className="column is-half panel">
+              <div id="conversation" className={smallScreen ? "column is-half" : "column is-half panel"}>
                 <ConversationDetail
                   interlocutorName={
                     `${currentInterlocutor.firstname} ${currentInterlocutor.surname}`

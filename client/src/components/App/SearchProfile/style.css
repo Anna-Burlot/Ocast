@@ -30,6 +30,8 @@
   position: relative;
   width: 256px;
   height: 256px;
+  margin-right: 2rem;
+  margin-top: 1rem;
 }
 
 .details-profile {
@@ -99,6 +101,17 @@
   .profile-photo {
     width: 256px;
     height: 256px;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    margin-right: 0;
+  }
+
+  .details-profile {
+    margin-top: 5rem;
+  }
+
+  .details-profile-first {
+    margin-top: 1rem;
   }
 }
 

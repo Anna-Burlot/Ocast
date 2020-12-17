@@ -104,8 +104,6 @@ const userController = {
   },
   // méthode connexion
   login: async (request, response) => {
-    console.log('COUCOUCOUCOUCOUCOUCOUCOUCOUCOUCOU ', request);
-    console.log('COUCOUCOUCOUCOUCOUCOUCOUCOUCOUCOU ', response);
     try {
       // je recherche l'utilisateur qui a l'id saisi dans le body
       const user = await User.findOne({

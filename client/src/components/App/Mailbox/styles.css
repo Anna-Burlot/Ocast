@@ -32,6 +32,7 @@
 .conversation-header .report-user {
   position: absolute;
   right: 0;
+  margin-bottom: 0;
 }
 
 .media {
@@ -178,6 +179,14 @@
   position: relative;
 }
 
+.mailbox--messagesPreview-button {
+  border-radius: 4px;
+}
+
+.button--large {
+  max-width: none;
+}
+
 @media (max-width: 500px) {
   .conversation-detail h2 {
     max-width: 90%;
@@ -206,11 +215,13 @@
   }
 
   .conversation-header {
-    position: fixed;
-    flex-flow: column;
+    /* position: fixed; */
     background-color: white;
     z-index: 1;
     width: 100%;
+    justify-content: space-evenly;
+    height: 2.5rem;
+    margin-top: 1.7rem;
   }
 
   .conversation-header .report-user {
@@ -244,6 +255,10 @@
     width: 100%;
     padding: 1rem 0;
     margin-top: unset;
+    height: 6.5rem;
+    @media (max-width: 500px) {
+      padding: 0.25rem;
+    }
   }
 
   .mailbox .title {
@@ -252,6 +267,7 @@
 
   .mailbox .columns {
     padding-top: 6rem;
+    height: auto !important;
   }
 
   .mailbox .all-conversations {
@@ -274,8 +290,7 @@
 
   .mailbox .messages {
     padding: unset;
-    padding-top: 22%;
-    height: 62vh;
+    height: 10rem;
     padding-bottom: 1rem;
   }
 

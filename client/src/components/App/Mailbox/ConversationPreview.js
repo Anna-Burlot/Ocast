@@ -29,7 +29,7 @@ const ConversationPreview = ({
           <img src="https://bulma.io/images/placeholders/128x128.png" />
         </div>
       </figure>
-      <div className="media-content message-preview">
+      <div className="media-content message-preview is-clipped	">
         <div className="message-preview-interlocutor">
           <h3 className="is-size-5 has-text-weight-bold">{interlocutor}</h3>
         </div>

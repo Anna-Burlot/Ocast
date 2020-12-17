@@ -50,7 +50,7 @@ const SearchProfile = (props) => {
             />
           )}
         </div>
-        <div className="details-profile info column is-half">
+        <div className="details-profile details-profile-first info column is-half">
           <h2 className="is-size-4 has-text-centered primary-text">
             Informations Profil
           </h2>

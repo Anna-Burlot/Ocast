@@ -9,7 +9,7 @@ import ReportProfileButton from "src/components/App/ReportProfileButton";
 const ConversationDetail = ({ interlocutorName, interlocutorId }) => (
   <div className="conversation-detail">
     <div className="conversation-header">
-      <h2>Conversation avec {interlocutorName}</h2>
+      <h2>{interlocutorName}</h2>
       <ReportProfileButton 
         userToReportId={interlocutorId} 
         size="is-small" 
